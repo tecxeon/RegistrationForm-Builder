@@ -1,5 +1,5 @@
 # RegistrationForm-Builder
-tecxeon registration form builder
+tecxeon registration form builder, create website version of google forms easily 
 
 ### pre-requisites:
 - python
