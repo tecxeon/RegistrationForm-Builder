@@ -36,7 +36,7 @@ def template(title, form, func):
     </head>
     <body
         class="bg-no-repeat bg-cover bg-center"
-        style="background-image: url('f.jpg')"
+        style="background-image: url('background.jpg')"
     >
         <div
             id="banner"
@@ -46,7 +46,7 @@ def template(title, form, func):
         >
             <div
                 class="bg-no-repeat bg-center bg-contain py-6 mx-auto w-full z-10"
-                style="background-image: url(../../../assets/images/astraW.png)"
+                style="background-image: url('logo.png')"
             ></div>
         </div>
         <div class="relative min-h-screen py-40 backdrop-blur-sm">
@@ -56,7 +56,7 @@ def template(title, form, func):
                 >
                     <div
                         class="w-full lg:w-1/2 lg:flex flex-col items-center justify-center bg-no-repeat bg-cover bg-center"
-                        style="background-image: url('f.jpg')"
+                        style="background-image: url('background.jpg')"
                     ></div>
                     <div class="bg-boxColor w-full lg:w-1/2 lg:py-6 py-9 px-6">
                         <h2

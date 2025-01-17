@@ -1,5 +1,6 @@
 import re
-
+import os
+import shutil
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -64,7 +65,7 @@ def generate_form(data, base_url):
 
     for label in data:
         name = sanitize_name(label)
-        if name == "fullname":
+        if name == "fullname" or name == "name":
             continue
         form_html += f'''
         <div class="mb-6">
@@ -100,7 +101,7 @@ def generate_form(data, base_url):
 
     for key in data:
         name = sanitize_name(key)
-        if name == "fullname":
+        if name == "fullname" or name == "name":
             continue
         else:
             func += f"""
@@ -145,7 +146,11 @@ def generate_form(data, base_url):
     return form_html, func
 
 
-def main(url, path):
+def main(url, pagename):
+    print("creating page folder")
+    if not os.path.exists(pagename):
+        os.makedirs(pagename)
+    path = os.path.join(pagename, "index.html")
     print("fectching data from url")
     name_id, heading, base_url = fetch_data(url)
     print("data fetched: ", name_id, heading, base_url)
@@ -155,6 +160,10 @@ def main(url, path):
     print("writing to file")
     with open(path, "w", encoding="utf-8") as f:
         f.write(page)
+    print("copying necessary files")
+    shutil.copy2("data/style.css", os.path.join(pagename, "style.css"))
+    shutil.copy2("data/background.jpg", os.path.join(pagename, "background.jpg"))
+    shutil.copy2("data/logo.png", os.path.join(pagename, "logo.png"))
 
 
-# main(googleformurl, filepath)
+# main(googleformurl, pagename)

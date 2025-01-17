@@ -8,5 +8,12 @@ tecxeon registration form builder
 
 ### How to run:
 1. Clone the repository
-2. edit script.py set the google form link(url) and path where you want to save the html file
-3. run the script.py (python script.py)
+2. Install selenium 
+    ```bash 
+    pip install selenium
+    ```
+2. Edit script.py set the google form link(url) and page name (should not contain spaces)
+3. Run the script.py 
+    ```py
+    python script.py
+    ```
