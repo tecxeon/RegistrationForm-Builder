@@ -112,7 +112,10 @@ def generate_form(data, base_url):
 
     for key, ids in data.items():
         name = sanitize_name(key)
-        func += f'''"{ids}": {name},'''
+        if name == "fullname" or name == "name":
+            func += f'''"{ids}": fullname,'''
+        else:
+            func += f'''"{ids}": {name},'''
 
     func += (
         """
